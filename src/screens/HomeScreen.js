@@ -13,7 +13,9 @@ const HomeScreen = ({ navigation }) => {
                     Find local businesses near you
                 </Text>
                 <Button
-                    title="Go to Search"
+                    title="Search"
+                    color="#fff"
+                    style={styles.buttonStyle}
                     onPress={() => {
                         navigation.navigate('Search');
                     }}
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'rgba(0,0,0,.5)',
+        backgroundColor: 'rgba(0,0,0,.7)',
         justifyContent: 'center',
     },
     image: {

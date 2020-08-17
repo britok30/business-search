@@ -16,9 +16,13 @@ const navigator = createStackNavigator(
             screen: SearchScreen,
             navigationOptions: {
                 title: 'Search',
+                headerTitleStyle: {
+                    color: '#fff',
+                },
                 headerStyle: {
                     backgroundColor: '#000',
                 },
+                headerTintColor: '#fff',
             },
         },
     },
