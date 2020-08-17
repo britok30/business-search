@@ -7,14 +7,24 @@ const SearchScreen = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [results, setResults] = useState([]);
 
+    const searchApi = async () => {
+        const response = await yelp.get('/search', {
+            params: {
+                limit: 50,
+                term: searchTerm,
+                location: 'New York',
+            },
+        });
+
+        setResults(response.data.businesses);
+    };
+
     return (
         <View style={styles.container}>
             <SearchBar
                 term={searchTerm}
-                onTermChange={(newTerm) => setSearchTerm(newTerm)}
-                onTermSubmit={() => {
-                    console.log('term was submitted');
-                }}
+                onTermChange={setSearchTerm}
+                onTermSubmit={searchApi}
             />
             <Text style={styles.textStyle}>
                 We have found {results.length} results.
