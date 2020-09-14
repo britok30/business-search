@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 
 import SearchScreen from './src/screens/SearchScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import ResultsShowScreen from './src/screens/ResultsShowScreen';
 
 const navigator = createStackNavigator(
     {
@@ -20,10 +21,13 @@ const navigator = createStackNavigator(
                     color: '#fff',
                 },
                 headerStyle: {
-                    backgroundColor: '#000',
+                    backgroundColor: '#1a1a2e',
                 },
                 headerTintColor: '#fff',
             },
+        },
+        ResultsShow: {
+            screen: ResultsShowScreen,
         },
     },
     {

@@ -48,7 +48,7 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#000',
+        backgroundColor: '#1a1a2e ',
         height: '100%',
         flex: 1,
     },

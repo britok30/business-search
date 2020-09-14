@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Button } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -8,7 +9,9 @@ const HomeScreen = ({ navigation }) => {
             style={styles.image}
         >
             <View style={styles.container}>
-                <Text style={styles.homeTitle}>Findbooks</Text>
+                <Text style={styles.homeTitle}>
+                    <FontAwesome name="foursquare" style={styles.iconStyle} />
+                </Text>
                 <Text style={styles.detailTitle}>
                     Find local businesses near you
                 </Text>
@@ -29,8 +32,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'rgba(0,0,0,.7)',
+        backgroundColor: 'rgba(0,0,0,.4)',
         justifyContent: 'center',
+    },
+    iconStyle: {
+        fontSize: 100,
     },
     image: {
         flex: 1,
