@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import ResultsList from '../components/ResultsList';
 import useResults from '../hooks/useResults';
@@ -24,22 +24,24 @@ const SearchScreen = () => {
             {errorMessage ? (
                 <Text style={styles.textStyle}>{errorMessage}</Text>
             ) : null}
-            <ResultsList
-                results={filterResultsByPrice('$')}
-                header="Cost Effective"
-            />
-            <ResultsList
-                results={filterResultsByPrice('$$')}
-                header="Bit Pricier"
-            />
-            <ResultsList
-                results={filterResultsByPrice('$$$')}
-                header="Big Spender"
-            />
-            <ResultsList
-                results={filterResultsByPrice('$$$$')}
-                header="Really Expensive"
-            />
+            <ScrollView>
+                <ResultsList
+                    results={filterResultsByPrice('$')}
+                    header="Cost Effective"
+                />
+                <ResultsList
+                    results={filterResultsByPrice('$$')}
+                    header="Bit Pricier"
+                />
+                <ResultsList
+                    results={filterResultsByPrice('$$$')}
+                    header="Big Spender"
+                />
+                <ResultsList
+                    results={filterResultsByPrice('$$$$')}
+                    header="Really Expensive"
+                />
+            </ScrollView>
         </View>
     );
 };
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#000',
         height: '100%',
+        flex: 1,
     },
     textStyle: {
         color: '#fff',
