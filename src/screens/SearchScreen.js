@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import ResultsList from '../components/ResultsList';
@@ -7,6 +7,14 @@ import useResults from '../hooks/useResults';
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
     const [searchApi, results, errorMessage] = useResults();
+
+    console.log(results);
+
+    const filterResultsByPrice = (price) => {
+        return results.filter((result) => {
+            return result.price === price;
+        });
+    };
 
     return (
         <View style={styles.container}>
@@ -21,9 +29,22 @@ const SearchScreen = () => {
             <Text style={styles.textStyle}>
                 We have found {results.length} results
             </Text>
-            <ResultsList header="Cost Effective" />
-            <ResultsList header="Bit Pricier" />
-            <ResultsList header="Big Spender" />
+            <ResultsList
+                results={filterResultsByPrice('$')}
+                header="Cost Effective"
+            />
+            <ResultsList
+                results={filterResultsByPrice('$$')}
+                header="Bit Pricier"
+            />
+            <ResultsList
+                results={filterResultsByPrice('$$$')}
+                header="Big Spender"
+            />
+            <ResultsList
+                results={filterResultsByPrice('$$$$')}
+                header="Really Expensive"
+            />
         </View>
     );
 };
