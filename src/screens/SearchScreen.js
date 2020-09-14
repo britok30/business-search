@@ -8,8 +8,6 @@ const SearchScreen = () => {
     const [term, setTerm] = useState('');
     const [searchApi, results, errorMessage] = useResults();
 
-    console.log(results);
-
     const filterResultsByPrice = (price) => {
         return results.filter((result) => {
             return result.price === price;
@@ -26,9 +24,6 @@ const SearchScreen = () => {
             {errorMessage ? (
                 <Text style={styles.textStyle}>{errorMessage}</Text>
             ) : null}
-            <Text style={styles.textStyle}>
-                We have found {results.length} results
-            </Text>
             <ResultsList
                 results={filterResultsByPrice('$')}
                 header="Cost Effective"
