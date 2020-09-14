@@ -9,7 +9,7 @@ const navigator = createStackNavigator(
         Home: {
             screen: HomeScreen,
             navigationOptions: {
-                header: null,
+                headerShown: false,
             },
         },
         Search: {
