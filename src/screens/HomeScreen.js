@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
                     <FontAwesome name="foursquare" style={styles.iconStyle} />
                 </Text>
                 <Text style={styles.detailTitle}>
-                    Find local businesses near you
+                    Find local food businesses near you
                 </Text>
                 <Button
                     title="Search"
